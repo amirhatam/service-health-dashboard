@@ -1,8 +1,93 @@
+import { mockServices } from "./data/mockServices";
+import type { ServiceStatus } from "./types/service";
+
+const statusLabels: Record<ServiceStatus, string> = {
+  operational: "Operational",
+  degraded: "Degraded",
+  down: "Down",
+  unknown: "Unknown",
+};
+
+function App() {
+  return (
+    <main
+      style={{
+        maxWidth: "900px",
+        margin: "40px auto",
+        padding: "24px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <header>
+        <h1>Service Health Dashboard</h1>
+        <p>Stage 1 — Service data model verification</p>
+      </header>
+
+      <section>
+        <h2>Monitored Services</h2>
+
+        <ul style={{ padding: 0, listStyle: "none" }}>
+          {mockServices.map((service) => (
+            <li
+              key={service.id}
+              style={{
+                marginBottom: "16px",
+                padding: "16px",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+              }}
+            >
+              <h3>{service.name}</h3>
+
+              <p>{service.description}</p>
+
+              <p>
+                <strong>Status:</strong> {statusLabels[service.status]}
+              </p>
+
+              <p>
+                <strong>URL:</strong>{" "}
+                <a href={service.url} target="_blank" rel="noopener noreferrer">
+                  {service.url}
+                </a>
+              </p>
+
+              <p>
+                <strong>Response time:</strong>{" "}
+                {service.responseTimeMs === null
+                  ? "Unavailable"
+                  : `${service.responseTimeMs} ms`}
+              </p>
+
+              <p>
+                <strong>Last checked:</strong>{" "}
+                {service.lastCheckedAt === null
+                  ? "Never checked"
+                  : new Date(service.lastCheckedAt).toLocaleString()}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <footer>
+        <p>
+          This dashboard currently displays sample data. No real monitoring is
+          performed.
+        </p>
+      </footer>
+    </main>
+  );
+}
+
+export default App;
+
 // import { useState } from "react";
 // import heroImg from "./assets/hero.png";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "./assets/vite.svg";
-import "./App.css";
+// import "./App.css";
+// import { mockServices } from "./data/mockServices";
 
 // function App() {
 //   const [count, setCount] = useState(0);
@@ -121,23 +206,23 @@ import "./App.css";
 
 // export default App;
 
-function App() {
-  return (
-    <main className="min-h-screen bg-slate-950 p-8 text-white">
-      <h1 className="text-3xl font-bold text-sky-400">My First React App</h1>
+// // function App() {
+// //   return (
+// //     <main className="min-h-screen bg-slate-950 p-8 text-white">
+// //       <h1 className="text-3xl font-bold text-sky-400">My First React App</h1>
 
-      <p className="mt-4 text-slate-300">
-        React + TypeScript + Vite + Tailwind CSS
-      </p>
+// //       <p className="mt-4 text-slate-300">
+// //         React + TypeScript + Vite + Tailwind CSS
+// //       </p>
 
-      <button
-        className="mt-6 rounded-lg bg-sky-500 px-4 py-2 font-semibold hover:bg-sky-400"
-        onClick={() => alert("Everything works!")}
-      >
-        Test application
-      </button>
-    </main>
-  );
-}
+// //       <button
+// //         className="mt-6 rounded-lg bg-sky-500 px-4 py-2 font-semibold hover:bg-sky-400"
+// //         onClick={() => alert("Everything works!")}
+// //       >
+// //         Test application
+// //       </button>
+// //     </main>
+// //   );
+// // }
 
-export default App;
+// // export default App;
