@@ -18,6 +18,8 @@ function ServiceList() {
         fontFamily: "Arial, sans-serif",
       }}
     >
+      <h1 className="mb-4 text-2xl font-bold">Service Health Dashboard</h1>
+      <p className="my-3">Stage 1 — Service data model verification</p>
       <h2>Monitored Services</h2>
       <ul className="grid grid-cols-2 gap-4 p-4">
         {mockServices.map((service) => (
