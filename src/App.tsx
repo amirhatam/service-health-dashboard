@@ -8,9 +8,7 @@ function App() {
     <main>
       <Header />
 
-      <section>
-        <ServiceCard />
-      </section>
+      <ServiceCard />
 
       <AppFooter />
     </main>
