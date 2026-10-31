@@ -10,10 +10,11 @@ const statusLabels: Record<ServiceStatus, string> = {
 
 function ServiceList() {
   return (
-    <main className="min-h-screen flex flex-col md:flex-row">
+    // <main className="min-h-screen flex flex-col md:flex-row">
+    <main className="flex-1 min-w-0">
       <div
+        className="flex-1 min-w-0"
         style={{
-          maxWidth: "900px",
           margin: "40px auto",
           padding: "24px",
           fontFamily: "Arial, sans-serif",
