@@ -1,8 +1,10 @@
-import Footer from "./components/Footer";
+import { mockServices } from "./data/mockServices";
+
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 import SummaryCards from "./components/SummaryCards";
-import ServiceCard from "./components/ServiceCard";
+import ServiceList from "./components/ServiceList";
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
       <div className="flex flex-1 flex-col md:flex-row">
         <Sidebar />
         <main className="flex-1 min-w-0">
-          <SummaryCards />
-          <ServiceCard />
+          <SummaryCards services={mockServices} />
+          <ServiceList services={mockServices} />
         </main>
       </div>
 
