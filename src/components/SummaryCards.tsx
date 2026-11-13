@@ -19,10 +19,6 @@ function SummaryCards({ services }: SummaryCardsProps) {
   );
 
   return (
-    // <div className="mx-auto my-10 p-6">
-    //   <h2 className="mb-4 text-2xl font-bold">Overview</h2>
-
-    //   <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 p-4">
     <div className="flex-1 min-w-0 mx-auto my-10 p-6">
       <h2 className="mb-4 text-2xl font-bold">Overview</h2>
       <div className="grid grid-cols-2 gap-4 p-4">
